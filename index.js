@@ -47,6 +47,14 @@ const getThinAndThickUnitsPrice = (data) => {
   return [thinUnits[0] * thinUnits[1], thickUnits[0] * thickUnits[1]];
 };
 
+const getDevStrPriceUnits = (data) => {
+  const units = _.sortBy(
+    data.map((el) => [el[mobIndex], Number(el[priceIndex]) / Number(el[strengthIndex])]),
+    1,
+  );
+  return [units[0][0], units[units.length - 1][0]];
+};
+
 const data = parse(content);
 console.log(`Mob types: ${data.length}`);
 
@@ -56,6 +64,10 @@ console.log(`10 most strength and 20 second strength price: ${curPrice}`);
 const [thinsPrice, thicksPrice] = getThinAndThickUnitsPrice(data);
 console.log(`Thins party price: ${thinsPrice}`);
 console.log(`Thicks party price: ${thicksPrice}`);
+
+const [unProfMob, profMob] = getDevStrPriceUnits(data);
+console.log(`Unprofitable mob: ${unProfMob}`);
+console.log(`Profitable mob: ${profMob}`);
 
 getThinAndThickUnitsPrice(data);
 // END
