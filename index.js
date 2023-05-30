@@ -55,6 +55,15 @@ const getDevStrPriceUnits = (data) => {
   return [units[0][0], units[units.length - 1][0]];
 };
 
+const army10k = (data) => {
+  const units = _.sortBy(
+    data.map((el) => [el[mobIndex], el[priceIndex], Number(el[priceIndex]) / Number(el[strengthIndex])]),
+    2,
+  ).filter(([mob, value]) => value <= 10000);
+  const [unit, price] = units[units.length - 1];
+  return [unit, Math.floor(10000 / price)];
+};
+
 const data = parse(content);
 console.log(`Mob types: ${data.length}`);
 
@@ -69,5 +78,8 @@ const [unProfMob, profMob] = getDevStrPriceUnits(data);
 console.log(`Unprofitable mob: ${unProfMob}`);
 console.log(`Profitable mob: ${profMob}`);
 
-getThinAndThickUnitsPrice(data);
+const [bestUnit, partyCount] = army10k(data);
+console.log(`Best army is ${partyCount} partys of ${bestUnit}'s`);
+
+army10k(data);
 // END
