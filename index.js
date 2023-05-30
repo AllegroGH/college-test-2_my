@@ -71,8 +71,8 @@ const curPrice = getPriceStrengthFirstSecond(data, 10, 20);
 console.log(`10 most strength and 20 second strength price: ${curPrice}`);
 
 const [thinsPrice, thicksPrice] = getThinAndThickUnitsPrice(data);
-console.log(`Thins party price: ${thinsPrice}`);
-console.log(`Thicks party price: ${thicksPrice}`);
+console.log(`Thin party price: ${thinsPrice}`);
+console.log(`Thick party price: ${thicksPrice}`);
 
 const [unProfMob, profMob] = getDevStrPriceUnits(data);
 console.log(`Unprofitable mob: ${unProfMob}`);
