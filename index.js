@@ -59,7 +59,7 @@ const army10k = (data) => {
   const units = _.sortBy(
     data.map((el) => [el[mobIndex], el[priceIndex], Number(el[priceIndex]) / Number(el[strengthIndex])]),
     2,
-  ).filter(([mob, value]) => value <= 10000);
+  ).filter(([, value]) => value <= 10000);
   const [unit, price] = units[units.length - 1];
   return [unit, Math.floor(10000 / price)];
 };
