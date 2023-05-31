@@ -1,6 +1,7 @@
 # badges
 [![Maintainability](https://api.codeclimate.com/v1/badges/7da6ef16c2b94a005f16/maintainability)](https://codeclimate.com/github/AllegroGH/college-test-2_my/maintainability)
 
+
 # college-test-2
 
 Вам дана таблица существ в файле table.csv. Стоимость приводится за одно существо, а не за отряд.
